@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<package name="struts-result-exception" extends="struts-default" namespace="/">		
+		<action name="login" class="action.LoginAction" >
+			<result name="teachersuccess" type="chain">list</result>
+			<result name="studentsuccess">/suclogin.jsp</result>
+			<result name="fail">/loginFail.jsp</result>		
+		</action>
+		
+		<action name="ask" class="action.AskAction"  method="insertask">
+			<result name="success">/sucinsert.jsp</result>
+			<result name="fail">/loginFail.jsp</result>		
+		</action>
+		
+		<action name="mylist"  class="action.MyListAction"  method="mylist">
+			<result name="success">/mylist.jsp</result>		
+		</action>
+		<action name="unmylist"  class="action.MyListAction"  method="unmylist">
+			<result name="success">/myunlist.jsp</result>		
+		</action>
+		<action name="domylist"  class="action.MyListAction"  method="domylist">
+			<result name="success">/mydolist.jsp</result>		
+		</action>
+		
+		<action name="detail" class="action.AskAction"  method="detail">
+			<result name="success">/detail.jsp</result>		
+		</action>
+		<action name="delete" class="action.AskAction"  method="delete">
+			<result name="success" type="chain">unmylist</result>
+			<result name="fail">/loginFail.jsp</result>	
+		</action>
+		<action name="update" class="action.AskAction"  method="update">
+			<result name="success" type="chain">unmylist</result>
+			<result name="fail">/loginFail.jsp</result>	
+		</action>
+		
+		<action name="list" class="action.ListAction"  method="list">
+			<result name="success">sucteacherlogin.jsp</result>		
+		</action>
+		<action name="unlist" class="action.ListAction"  method="unlist">
+			<result name="success" >unlist.jsp</result>
+			<result name="fail">/loginFail.jsp</result>		
+		</action>
+		<action name="dolist" class="action.ListAction"  method="dolist">
+			<result name="success" >dolist.jsp</result>
+			<result name="fail">/loginFail.jsp</result>		
+		</action>
+		<action name="replyagree" class="action.ReplyAction"  method="replyagree">
+			<result name="success" type="chain" >list</result>
+			<result name="fail">/loginFail.jsp</result>		
+		</action>
+		<action name="replydisagree" class="action.ReplyAction"  method="replydisagree">
+			<result name="success"  type="chain">list</result>
+			<result name="fail">/loginFail.jsp</result>		
+		</action>
+	</package>
+	<package name="AppWeb" extends="json-default" namespace="/">
+		<action name="applogin" class="appaction.AppLoginAction" method="login">
+			<result type="json"></result>
+		</action>
+		<action name="appreplyagree" class="appaction.AppReplyAction" method="replyagree">
+			<result type="json"></result>
+		</action>
+		<action name="appreplydisagree" class="appaction.AppReplyAction" method="replydisagree">
+			<result type="json"></result>
+		</action>
+		<action name="appask" class="appaction.AppAskAction" method="ask">
+			<result type="json"></result>
+		</action>
+	</package>
+</struts>

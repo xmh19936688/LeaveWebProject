@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="struts-result-exception"
+  id="myeclipse.1348627607000"
+  context-root="/struts-result-exception"
+  j2ee-spec="5.0"
+  archive="struts-result-exception.war">
+  <attributes>
+    <attribute name="webrootdir" value="/WebRoot" />
+  </attributes>
+</project-module>
+
